@@ -403,9 +403,9 @@ bool ARMEncodeDecode::DecodeLR(MachineInstr &MI, MachineOperand &PCLR,
 //
 
 bool ARMEncodeDecode::runOnModule(Module &M) {
-  // if (!EnableEncodeDecode) {
-  //   return false;
-  // }
+  if (!EnableEncodeDecode) {
+    return false;
+  }
 
   // random number stored in r9
   MachineModuleInfo &MMI = getAnalysis<MachineModuleInfoWrapperPass>().getMMI();
